@@ -1,4 +1,4 @@
-# RWallet
+# XWallet
 
 ## Introduction
 This is a multi-cryptocurrency wallet application. Supports both english and spanish.
