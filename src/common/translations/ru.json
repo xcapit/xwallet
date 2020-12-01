@@ -77,9 +77,7 @@
         "addReadOnlyWalletNote": "Мониторинг активов без ключей"
       },
       "selectCurrency": {
-        "title": "Выберите активы кошелька",
-        "mainnet": "Mainnet",
-        "testnet": "Testnet"
+        "title": "Выберите активы кошелька"
       },
       "selectWallet": {
         "title": "Выберите актив"
@@ -147,7 +145,7 @@
         "waitingForOperationsDesc": "Выполните любые операции из dapp %{dappName}. RWallet предложит запросить подтверждение подписи, если потребуется.",
         "disconnect": "Отключить",
         "approveAllowance": "Подтвердить пособие",
-        "approveAllowanceDesc": "Нажимая \"Подтвердить\", вы соглашаетесь разрешить %{dappUrl} передавать токены от вашего имени.",
+        "approveAllowanceDesc": "Нажимая «Подтвердить», вы соглашаетесь разрешить %{dappUrl} выполнять вызовы смарт-контрактов от вашего имени.",
         "asset": "Актив",
         "permission": "Разрешение",
         "allowance": "Allowance",
@@ -171,11 +169,18 @@
         "successDesc": "Успех! Ваша транзакция была опубликована в блокчейне. После подтверждения она должна отображаться в приложении.",
         "approveTransaction": "Подтвердить транзакцию",
         "approveTransactionDesc": "Нажимая \"Подтвердить\", вы соглашаетесь подписать транзакцию, исходящую от %{dappUrl}",
+        "approveSmartContract": "Утвердить вызов смарт-контракта",
+        "approveSmartContractDesc": "Нажимая \"Подтвердить\", вы соглашаетесь подписать вызов смарт-контракта, исходящий от %{dappUrl}",
+        "spender": "Спендер",
+        "value": "Значение",
+        "recipient": "Получатель",
+        "method": "Метод",
         "amount": "Сумма",
         "type": "Тип",
         "from": "From",
         "to": "To",
         "data": "Данные",
+        "contract": "Договор",
         "networkQuestion": {
           "title": "Сеть",
           "body": "Тестовая сеть - это альтернативная цепочка блоков RSK, которая будет использоваться для тестирования."
@@ -222,9 +227,7 @@
       },
       "addCustomToken": {
         "title": "Добавить пользовательские активы",
-        "address": "Адрес договора для актива",
-        "mainnet": "Mainnet",
-        "testnet": "Тестовая сеть"
+        "address": "Адрес договора для актива"
       },
       "addCustomTokenConfirm": {
         "title": "Добавить пользовательские активы",
@@ -287,7 +290,10 @@
         "errorTitle": "Не удалось",
         "errorContent": "Произошла неизвестная ошибка, повторите попытку позже",
         "errorButton": "Хорошо"
-      }
+      },
+      "backTitle": "Предупреждение",
+      "backMessage": "Вы покидаете приложение, вы уверены, что хотите существовать?",
+      "infinitePositiveNumber": "Бесконечное положительное число"
     },
     "mine": {
       "index": {
@@ -639,6 +645,10 @@
     "convertContractAddress": {
       "title": "Invalid RSK contract address",
       "body": "The entered contract address is an invalid RSK address. RWallet will try to auto-correct it into the expected address format. Do you want to proceed?"
+    },
+    "invalidParam": {
+      "title": "Неверный параметр",
+      "body": "Параметр недействителен."
     }
   },
   "currency": {
@@ -654,5 +664,9 @@
       "title": "Сетевая ошибка",
       "body": "Не удается подключить ваше устройство к серверу."
     }
+  },
+  "networkType": {
+    "mainnet": "Mainnet",
+    "testnet": "Testnet"
   }
 }

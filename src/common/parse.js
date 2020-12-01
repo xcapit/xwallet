@@ -115,6 +115,10 @@ class ParseHelper {
       parseUser.set('deviceId', deviceId);
     }
 
+    if (!_.isEmpty(VersionNumber.appVersion)) {
+      parseUser.set('clientVersion', VersionNumber.appVersion);
+    }
+
     // Only set wallets when it's defined.
     if (_.isArray(wallets)) {
       // 1. Save Address into database if Coin has no objectId
@@ -508,6 +512,15 @@ class ParseHelper {
    * @returns {array} transaction hash array
    */
   static getInputAddressTXHash = async (address, type, amount) => Parse.Cloud.run('getInputAddressTXHash', { address, type, value: amount })
+
+  /**
+   * Get Address info
+   * @param {*} symbol
+   * @param {*} type
+   * @param {*} address
+   * @returns {object} address info
+   */
+  static getAddress = async (symbol, type, address) => Parse.Cloud.run('getAddress', { symbol, type, address });
 }
 
 // Create parse helper proxy to add global error handling

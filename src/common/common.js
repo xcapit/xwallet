@@ -18,13 +18,14 @@ import 'moment/locale/ja';
 import 'moment/locale/ko';
 import 'moment/locale/ru';
 import config from '../../config';
-import I18n from './i18n';
-import { BIOMETRY_TYPES, CustomToken } from './constants';
+import I18n, { strings } from './i18n';
+import { BIOMETRY_TYPES, CustomToken, NETWORK } from './constants';
 import cointype from './wallet/cointype';
-import { InvalidAddressError } from './error';
+import { InvalidAddressError, InvalidParamError } from './error';
 
 const { consts: { currencies, supportedTokens } } = config;
 const DEFAULT_CURRENCY_SYMBOL = currencies[0].symbol;
+const { MAINNET, TESTNET } = NETWORK;
 
 // Default BTC transaction size
 const DEFAULT_BTC_TX_SIZE = 400;
@@ -61,25 +62,39 @@ const common = {
     return `0x${this.rskCoinToWei(amount, precision).decimalPlaces(0).toString(16)}`;
   },
   /**
-   * Transform coin value to wei unit
+   * Transform coin value to wei unit. Throw InvalidParamError If param is not valid.
    * Example: RIF, precision = 18, 0.001 RIF = 1e15 (wei) RIF
    * Example: SOL, precision = 2, 1 SOL = 100 (wei) SOL
    * @param {*} amount
    * @param {*} precision
    */
   rskCoinToWei(amount, precision = 18) {
+    if (!(amount
+      && (BigNumber.isBigNumber(amount) || _.isNumber(amount) || _.isString(amount)))) {
+      throw new InvalidParamError();
+    }
+    if (!_.isNumber(precision)) {
+      throw new InvalidParamError();
+    }
     const precisionInteger = _.floor(Number(precision));
     return new BigNumber(amount).times(`1e${precisionInteger}`);
   },
 
   /**
-   * Transform wei unit value to coin value
+   * Transform wei unit value to coin value. Throw InvalidParamError If param is not valid.
    * Example: RIF, precision = 18, 1e15 (wei) RIF = 0.001 RIF
    * Example: SOL, precision = 2, 100 (wei) SOL = 1 SOL
    * @param {*} wei
    * @param {*} precision
    */
   weiToCoin(wei, precision = 18) {
+    if (!(wei
+      && (BigNumber.isBigNumber(wei) || _.isNumber(wei) || (_.isString(wei) && wei.startsWith('0x'))))) {
+      throw new InvalidParamError();
+    }
+    if (!_.isNumber(precision)) {
+      throw new InvalidParamError();
+    }
     const precisionInteger = _.floor(Number(precision));
     return new BigNumber(wei).div(`1e${precisionInteger}`);
   },
@@ -606,6 +621,28 @@ const common = {
   },
 
   /**
+   * Chcke address is contract addrsss
+   * @param {*} address need check address
+   * @param {*} chainId chain id
+   */
+  async isContractAddress(address, chainId) {
+    return new Promise((resolve, reject) => {
+      const rskEndpoint = chainId === TESTNET.NETWORK_VERSION ? TESTNET.RSK_END_POINT : MAINNET.RSK_END_POINT;
+      const rsk3 = new Rsk3(rskEndpoint);
+      const checksumAddress = Rsk3.utils.toChecksumAddress(address, chainId);
+      rsk3.getCode(checksumAddress).then((code) => {
+        if (code !== '0x00') {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  },
+
+  /**
    * Decode ethereum transaction input data
    * return contract function name, types and other info
    * For Example, abi = [{...}], input = '0x12kz....uoisaiw'
@@ -620,6 +657,91 @@ const common = {
   },
 
   /**
+   * uppercase first letter in letters
+   * For Example
+   * letters = 'onoznxiu123Z', returns 'Onoznxiu123Z'
+   * letters = '_onoznxiu123Z', returns 'Onoznxiu123Z'
+   * @param {*} letters
+   */
+  uppercaseFirstLetter(letters) {
+    if (letters[0] !== '_') {
+      return letters.charAt(0).toUpperCase() + letters.slice(1);
+    }
+    return letters.charAt(1).toUpperCase() + letters.slice(2);
+  },
+
+  /**
+   * Check the number is positive infinity or not
+   * @param {*} number
+   */
+  isPositiveInfinity(number) {
+    const maxNumber = (2 ** 256) - 1;
+    let convertNumber = number;
+    if (BigNumber.isBigNumber(number)) {
+      convertNumber = number.toNumber();
+    } else if (typeof (number) === 'string') {
+      convertNumber = Number(number);
+    }
+    return _.isNumber(convertNumber) && convertNumber >= maxNumber;
+  },
+
+  /**
+   * Format contract abi input data
+   * For Example, inputData = { method: "transfer", inputs: ['0xsd1923yjasdhi9812y3uasnd', BN], names: ['_to', '_value'], types: ['address', 'unit256'] }, symbol = 'DOC'
+   * returns {
+   *   method: 'Transfer',
+   *   params: {
+   *     To: {
+   *       type: 'address',
+   *       value: '0xsd1923yjasdhi9812y3uasnd',
+   *     },
+   *     Value: {
+   *       type: 'uint256',
+   *       value: 1000000,
+   *     },
+   *   },
+   * };
+   * @param {*} inputData
+   * @param {*} symbol
+   */
+  formatContractABIInputData(inputData, symbol) {
+    if (!inputData || !inputData.method) {
+      return null;
+    }
+    const {
+      inputs, names, types, method,
+    } = inputData;
+    const params = { };
+    _.forEach(inputs, (inputValue, index) => {
+      const key = this.uppercaseFirstLetter(names[index]);
+      const type = types[index];
+      let value = inputValue;
+      // Address display the whole address
+      if (type === 'address') {
+        value = inputValue.startsWith('0x') ? inputValue : `0x${inputValue}`;
+      } else if (type === 'uint256') {
+        if (key === 'Value' || key === 'Amount') {
+          const unitAmount = new BigNumber(inputValue.toString());
+          const isPositiveInfinity = this.isPositiveInfinity(unitAmount);
+          const amount = isPositiveInfinity ? strings('page.dapp.infinitePositiveNumber') : this.convertUnitToCoinAmount(symbol, unitAmount);
+          value = `${amount} ${symbol}`;
+        } else {
+          value = inputValue.toString();
+        }
+      }
+      params[key] = {
+        type,
+        value,
+      };
+    });
+
+    return {
+      method: this.uppercaseFirstLetter(method),
+      params,
+    };
+  },
+
+  /**
    * Ellipsis a rsk address
    * For Example, address = '0xe62278ac258bda2ae6e8EcA32d01d4cB3B631257', showLength = 6, return '0xe62278...631257'
    * @param {*} address, a rsk address
@@ -629,15 +751,16 @@ const common = {
     if (!address) {
       return '';
     }
-    const { length } = address;
-    if (length <= (showLength * 2 + 2)) {
-      return address;
-    }
-    if (address.startsWith('0x')) {
-      return `0x${this.ellipsisString(address.substr(2, length), showLength)}`;
-    }
 
-    return this.ellipsisString(address, showLength);
+    let completionAddress = address;
+    if (!address.startsWith('0x')) {
+      completionAddress = `0x${address}`;
+    }
+    const { length } = completionAddress;
+    if (length <= (showLength * 2 + 2)) {
+      return completionAddress;
+    }
+    return `0x${this.ellipsisString(completionAddress.substr(2, length), showLength)}`;
   },
 
   /**
@@ -695,11 +818,11 @@ const common = {
 
   /**
    * getServerUrl, Return the url with the environment prefix. For example, the environment is development, url is development.rwallet.app.
-   * @param {*} baseUrl
-   * @param {*} environment
+   * @param {string} baseUrl
+   * @param {string} environment
    */
   getServerUrl(baseUrl, environment) {
-    if (!_.isEmpty(environment) && environment !== 'Production') {
+    if (!_.isEmpty(environment) && environment.toLowerCase() !== 'production') {
       const regex = /^([\w.]*:\/\/)(.*)\S*/g;
       const matches = regex.exec(baseUrl);
       const url = `${matches[1]}${environment.toLowerCase()}.${matches[2]}`;
@@ -720,6 +843,17 @@ const common = {
 
   getExplorerName(type) {
     return type === 'Mainnet' ? 'RSK Explorer' : 'RSK Testnet Explorer';
+  },
+
+  /**
+   * Return true if the dapp needs to display thumb dapp icon
+   * @param {*} item { name: { en: '', zh: '', ... } }
+   */
+  needDisplayThumbIcon(item) {
+    if (item && item.name && (_.includes(item.name.en, 'Sovryn') || item.name.en === 'RSK Swap')) {
+      return true;
+    }
+    return false;
   },
 };
 

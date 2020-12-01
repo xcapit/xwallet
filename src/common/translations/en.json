@@ -77,9 +77,7 @@
         "addReadOnlyWalletNote": "Monitor assets without keys"
       },
       "selectCurrency": {
-        "title": "Select Wallet Assets",
-        "mainnet": "Mainnet",
-        "testnet": "Testnet"
+        "title": "Select Wallet Assets"
       },
       "selectWallet": {
         "title": "Select Asset"
@@ -147,7 +145,7 @@
         "waitingForOperationsDesc": "Please perform any operations from the %{dappName} dapp. RWallet will prompt to ask for signature approval, if requested.",
         "disconnect": "Disconnect",
         "approveAllowance": "Approve Allowance",
-        "approveAllowanceDesc": "By clicking on Confirm, you agree to allow %{dappUrl} to transfer tokens on your behalf.",
+        "approveAllowanceDesc": "By clicking on Confirm, you agree to allow %{dappUrl} to execute smart contract calls on your behalf.",
         "asset": "Asset",
         "permission": "Permission",
         "allowance": "Allowance",
@@ -171,11 +169,18 @@
         "successDesc": "Success! Your transaction has been published to blockchain. Once confirmed, it should show in the dapp.",
         "approveTransaction": "Approve Transaction",
         "approveTransactionDesc": "By clicking on Confirm, you agree to sign the transaction originated from %{dappUrl}",
+        "approveSmartContract": "Approve Smart Contract Call",
+        "approveSmartContractDesc": "By clicking on Confirm, you agree to sign the smart contract call originated from %{dappUrl}",
+        "spender": "Spender",
+        "value": "Value",
+        "recipient": "Recipient",
+        "method": "Method",
         "amount": "Amount",
         "type": "Type",
         "from": "From",
         "to": "To",
         "data": "Data",
+        "contract": "Contract",
         "networkQuestion": {
           "title": "Network",
           "body": "The testnet is an alternative RSK block chain, to be used for testing."
@@ -222,9 +227,7 @@
       },
       "addCustomToken": {
         "title": "Add Custom Assets",
-        "address": "Asset Contract Address",
-        "mainnet": "Mainnet",
-        "testnet": "Testnet"
+        "address": "Asset Contract Address"
       },
       "addCustomTokenConfirm": {
         "title": "Add Custom Assets",
@@ -287,7 +290,10 @@
         "errorTitle": "Failed",
         "errorContent": "An unknown error occurred, please try again later",
         "errorButton": "Okay"
-      }
+      },
+      "backTitle": "Warning",
+      "backMessage": "You are leaving the dapp, are you sure want to exist?",
+      "infinitePositiveNumber": "Infinite positive number"
     },
     "mine": {
       "index": {
@@ -639,6 +645,10 @@
     "convertContractAddress": {
       "title": "Invalid RSK contract address",
       "body": "The entered contract address is an invalid RSK address. RWallet will try to auto-correct it into the expected address format. Do you want to proceed?"
+    },
+    "invalidParam": {
+      "title": "Invalid Parameter",
+      "body": "Parameter is not valid."
     }
   },
   "currency": {
@@ -654,5 +664,9 @@
       "title": "Network Error",
       "body": "Your device can not connect to the server."
     }
+  },
+  "networkType": {
+    "mainnet": "Mainnet",
+    "testnet": "Testnet"
   }
 }

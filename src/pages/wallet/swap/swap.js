@@ -454,13 +454,11 @@ class Swap extends Component {
       }
       const gasFee = feeObject.feeParams;
       const extraParams = {
-        data: '', memo: '', gasFee, coinswitch: { order },
+        data: '', memo: '', gasFee, coinSwitch: { order },
       };
       let transaction = new Transaction(swapSource.coin, agentAddress, sourceAmount, extraParams);
       console.log('transaction: ', transaction);
-      await transaction.processRawTransaction();
-      await transaction.signTransaction();
-      await transaction.processSignedTransaction();
+      await transaction.broadcast();
       this.setState({ isLoading: false });
       const completedParams = {
         symbol: swapSource.coin.symbol,
