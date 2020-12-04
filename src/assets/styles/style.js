@@ -60,10 +60,11 @@ const style = StyleSheet.create({
     marginBottom: 15,
   },
   rskIcon: {
-    width: 75,
-    height: 47,
-    marginLeft: -5,
-    marginTop: -2,
+    maxWidth: 75,
+    maxHeight: 20,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: -5,
   },
   listItemIndicator: {
     color: color.component.listItemIndicator.color,

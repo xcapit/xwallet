@@ -117,8 +117,8 @@ const PrimaryTabNavigator = createBottomTabNavigator(
       },
     }),
     tabBarOptions: {
-      activeTintColor: color.ceriseRed,
-      inactiveTintColor: color.gray,
+      activeTintColor: color.tab_btn_xcapit,
+      inactiveTintColor: color.tab_btn_xcapit,
     },
   },
 );

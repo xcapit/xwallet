@@ -12,7 +12,7 @@ common.setDefaultFontFamily();
 export default function App() {
   return (
     <Provider store={store}>
-      <StatusBar barStyle="light-content" backgroundColor={color.app.theme} />
+      <StatusBar barStyle="light-content" backgroundColor={color.app.orange} />
       <RootSwitchNavigator />
     </Provider>
   );

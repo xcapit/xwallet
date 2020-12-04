@@ -76,6 +76,12 @@ const baseColor = {
   snowDrift: '#F3F7F4',
   approxGray: '#909090',
 
+  // custom
+  orange: '#ff9100',
+  bg_xcapit: '#e5e5e5',
+  btn_xcapit: '#006eff',
+  tab_btn_xcapit: '#717171',
+
   // blue
   lynch: '#77869E',
   shipCove: '#6875B7',
@@ -135,7 +141,7 @@ const color = {
   },
   // end
   app: {
-    theme: baseColor.azureRadiance,
+    theme: baseColor.whiteA50,
     standard: baseColor.ceriseRed,
     fontImp: '#333333',
     fontNormal: baseColor.doveGray,
@@ -147,6 +153,7 @@ const color = {
     bg: '#f9f9f8',
     fontVIP: '#904829',
     inputBg: '#f2f2f2',
+    orange: baseColor.orange
   },
   text: {
     link: '#DF5264',

@@ -230,7 +230,7 @@ class WalletList extends Component {
         hasBottomBtn={false}
         hasLoader={false}
         isViewWrapper
-        renderAccessory={() => <RSKad />}
+        // renderAccessory={() => <RSKad />}
         headerComponent={<ListPageHeader title="page.wallet.list.title" />}
       >
         <View style={[styles.body]}>

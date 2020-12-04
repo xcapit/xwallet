@@ -11,7 +11,7 @@ import { strings } from '../../common/i18n';
 import color from '../../assets/styles/color';
 import fontFamily from '../../assets/styles/font.family';
 
-const header = require('../../assets/images/misc/header.png');
+const header = require('../../assets/images/misc/xcapit_header.png');
 
 const headerHeight = 350;
 const headerMarginTop = -150 + screenHelper.topHeight;

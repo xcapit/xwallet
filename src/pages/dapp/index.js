@@ -300,15 +300,15 @@ class DAppIndex extends Component {
       >
         <NavigationEvents
           onWillFocus={() => {
-            StatusBar.setBarStyle('dark-content');
+            StatusBar.setBarStyle('light-content');
             if (Platform.OS === 'android') {
-              StatusBar.setBackgroundColor(color.white);
+              StatusBar.setBackgroundColor(color.app.orange);
             }
           }}
           onWillBlur={() => {
             StatusBar.setBarStyle('light-content');
             if (Platform.OS === 'android') {
-              StatusBar.setBackgroundColor(color.app.theme);
+              StatusBar.setBackgroundColor(color.app.orange);
             }
           }}
         />

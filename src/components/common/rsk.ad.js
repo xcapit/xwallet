@@ -10,7 +10,7 @@ import color from '../../assets/styles/color';
 import fontFamily from '../../assets/styles/font.family';
 import screenHelper from '../../common/screenHelper';
 
-const rsk = require('../../assets/images/mine/page.footing.logo.png');
+const rsk = require('../../assets/images/mine/xcapit_logo_orange.png');
 
 const styles = StyleSheet.create({
   logoView: {

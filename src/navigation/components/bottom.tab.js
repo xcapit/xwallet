@@ -31,20 +31,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 70 + screenHelper.bottomHeight,
     elevation: 2,
-    backgroundColor: color.black,
-    borderTopRightRadius: 26,
-    borderTopLeftRadius: 26,
+    backgroundColor: color.white,
+    // borderTopRightRadius: 26,
+    // borderTopLeftRadius: 26,
     paddingBottom: screenHelper.bottomHeight,
+    borderTopWidth: 1,
+    borderTopColor: color.grayD8
   },
   tabButton: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   spotLight: {
     width: tabWidth * 0.5,
     height: 6,
-    backgroundColor: color.royalBlue,
-    borderRadius: 8,
+    backgroundColor: color.orange,
+    // borderRadius: 8,
   },
   tabButtonText: {
-    color: color.white,
+    color: color.tab_btn_xcapit,
   },
 });
 

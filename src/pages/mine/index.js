@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   linkText: {
-    color: color.app.theme,
+    color: color.btn_xcapit,
     fontSize: 16,
   },
   lastBlockMarginBottom: {
@@ -331,7 +331,7 @@ class MineIndex extends Component {
         isSafeView={false}
         hasBottomBtn={false}
         hasLoader={false}
-        renderAccessory={() => <RSKad />}
+        // renderAccessory={() => <RSKad />}
         headerComponent={<HeaderMineIndex avatar={avatar} usernameText={usernameText} onEditNamePress={this.onEditNamePress} />}
       >
         <View style={styles.body}>

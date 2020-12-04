@@ -8,7 +8,7 @@ import screenHelper from '../../common/screenHelper';
 import Loc from '../common/misc/loc';
 import color from '../../assets/styles/color';
 
-const header = require('../../assets/images/misc/header.png');
+const header = require('../../assets/images/misc/xcapit_header.png');
 
 const headerHeight = 350;
 const headerMarginTop = -150 + screenHelper.topHeight;

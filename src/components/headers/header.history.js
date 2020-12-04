@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import screenHelper from '../../common/screenHelper';
 import BackButton from './back.button';
 
-const header = require('../../assets/images/misc/header.png');
+const header = require('../../assets/images/misc/xcapit_header.png');
 
 const headerHeight = 350;
 const headerMarginTop = -150 + screenHelper.topHeight;

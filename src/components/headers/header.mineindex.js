@@ -8,7 +8,7 @@ import screenHelper from '../../common/screenHelper';
 import ResponsiveText from '../common/misc/responsive.text';
 import color from '../../assets/styles/color';
 
-const header = require('../../assets/images/misc/header.png');
+const header = require('../../assets/images/misc/xcapit_header.png');
 
 const AVATAR_SIZE = 129;
 const headerHeight = 160 + screenHelper.topHeight;
