@@ -81,6 +81,8 @@ const baseColor = {
   bg_xcapit: '#e5e5e5',
   btn_xcapit: '#006eff',
   tab_btn_xcapit: '#717171',
+  instagram_logo: '#f3667e',
+  // instagram_gradient: linear-gradient('45deg','#ff839d','#f50b9a');
 
   // blue
   lynch: '#77869E',
@@ -171,7 +173,7 @@ const color = {
     passcodeModal: {
       backgroundColor: '#080808',
       title: {
-        color: baseColor.white,
+        color: baseColor.btn_xcapit,
         alert: '#FC4349',
       },
       dot: {
@@ -184,7 +186,7 @@ const color = {
         borderColor: '#9F9F9F',
       },
       cancel: {
-        color: baseColor.white,
+        color: baseColor.tab_btn_xcapit,
       },
       char: {
         color: baseColor.concrete,

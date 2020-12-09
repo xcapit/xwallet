@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     width: 14,
     height: 14,
     borderRadius: 7,
-    backgroundColor: color.app.theme,
+    backgroundColor: color.tab_btn_xcapit,
   },
   customRow: {
     flexDirection: 'row',

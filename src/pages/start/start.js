@@ -13,7 +13,7 @@ import color from '../../assets/styles/color';
 import fontFamily from '../../assets/styles/font.family';
 import screenHelper from '../../common/screenHelper';
 
-const logo = require('../../assets/images/icon/xcapit_logo.png');
+const logo = require('../../assets/images/icon/xcapit_logo_2.png');
 
 const styles = StyleSheet.create({
   page: {

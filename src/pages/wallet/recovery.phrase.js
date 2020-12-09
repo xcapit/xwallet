@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   copy: {
     textAlign: 'center',
-    color: color.app.theme,
+    color: color.btn_xcapit,
     fontSize: 15,
   },
   tagsView: {

@@ -216,44 +216,44 @@ class MineIndex extends Component {
       title: 'Twitter',
       icon: <FontAwesome name="twitter" size={30} style={[styles.communityIcon, { color: color.cerulean }]} />,
       onPress: () => {
-        Linking.openURL('https://twitter.com/rsksmart');
+        Linking.openURL('https://twitter.com/xcapitla');
       },
     },
     {
       title: 'Telegram',
       icon: <FontAwesome name="telegram" size={30} style={[styles.communityIcon, { color: color.curiousBlue }]} />,
       onPress: () => {
-        Linking.openURL('https://t.me/rskofficialcommunity');
+        Linking.openURL('https://t.me/xcapit_es');
       },
     },
     {
       title: 'Facebook',
       icon: <Entypo name="facebook-with-circle" size={30} style={[styles.communityIcon, { color: color.sanMarino }]} />,
       onPress: () => {
-        Linking.openURL('https://www.facebook.com/RSKsmart/');
+        Linking.openURL('https://www.facebook.com/xcapit/');
       },
     },
     {
-      title: 'Gitter',
-      icon: <FontAwesome5 name="gitter" size={26} style={[styles.communityIcon]} />,
+      title: 'LinkedIn',
+      icon: <FontAwesome5 name="linkedin" size={26} style={[styles.communityIcon, { color: color.curiousBlue }]} />,
       onPress: () => {
-        Linking.openURL('https://gitter.im/rsksmart');
+        Linking.openURL('https://www.linkedin.com/company/xcapit');
       },
     },
     {
-      title: 'Reddit',
-      icon: <FontAwesome name="reddit" size={30} style={[styles.communityIcon, { color: color.vermilion }]} />,
+      title: 'Instagram',
+      icon: <Entypo name="instagram-with-circle" size={30} style={[styles.communityIcon, { color: color.instagram_logo }]} />,
       onPress: () => {
-        Linking.openURL('https://www.reddit.com/r/rootstock/');
+        Linking.openURL('https://www.instagram.com/xcapit.la/');
       },
     },
-    {
+    /*{
       title: 'YouTube',
       icon: <Entypo name="youtube-with-circle" size={30} style={[styles.communityIcon, { color: color.crimson }]} />,
       onPress: () => {
         Linking.openURL('https://www.youtube.com/rsksmart');
       },
-    },
+    },*/
   ];
 
   supports = [
@@ -261,16 +261,16 @@ class MineIndex extends Component {
       title: 'page.mine.index.contactUs',
       icon: <MaterialCommunityIcons name="email-outline" size={22} style={[styles.communityIcon, styles.grayIcon]} />,
       onPress: () => {
-        Linking.openURL('mailto:app@iovlabs.org');
+        Linking.openURL('mailto:hola@xcapit.com');
       },
     },
-    {
+    /*{
       title: 'page.mine.index.developerPortal',
       icon: <AntDesign name="home" size={22} style={[styles.communityIcon, styles.grayIcon]} />,
       onPress: () => {
         Linking.openURL('https://developers.rsk.co');
       },
-    },
+    },*/
     {
       title: 'page.start.terms.termsOfUse',
       icon: <AntDesign name="filetext1" size={22} style={[styles.communityIcon, styles.grayIcon]} />,

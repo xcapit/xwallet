@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import screenHelper from '../../common/screenHelper';
 import BackButton from './back.button';
 
-const header = require('../../assets/images/misc/header.earn.png');
+const header = require('../../assets/images/misc/xcapit_header_earn.png');
 
 const headerHeight = 630;
 const headerTopOffset = -200;

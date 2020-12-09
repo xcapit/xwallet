@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   link: {
     fontSize: 14,
-    color: color.app.theme,
+    color: color.btn_xcapit,
     fontFamily: fontFamily.AvenirBook,
   },
   recommendButton: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   recommendButtonText: {
-    color: color.concrete,
+    color: color.btn_xcapit,
   },
   normalButtonText: {
     fontFamily: fontFamily.AvenirHeavy,

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   button: {
-    color: color.app.theme,
+    color: color.btn_xcapit,
     textAlign: 'center',
     fontWeight: '900',
     fontSize: 16,

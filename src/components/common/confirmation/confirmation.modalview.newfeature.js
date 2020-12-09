@@ -11,7 +11,7 @@ import space from '../../../assets/styles/space';
 const styles = StyleSheet.create({
   title: {
     fontFamily: fontFamily.AvenirBlack,
-    color: color.app.theme,
+    color: color.btn_xcapit,
     fontSize: 20,
   },
   text: {
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   confirmText: {
-    color: color.white,
+    color: color.btn_xcapit,
     fontSize: 16,
     fontFamily: fontFamily.AvenirHeavy,
   },
