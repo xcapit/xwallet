@@ -1,4 +1,4 @@
-package com.rsk.rwallet.reactnative;
+package com.xcapit.wallet;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "rwallet";
+        return "wallet";
     }
 
     @Override

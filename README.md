@@ -99,7 +99,7 @@ The first three steps are needed for both Android and iOS devices.
 
 ## Setup fastlane environment variable
 ```
-APP_IDENTIFIER="com.rsk.rwallet.reactnative"
+APP_IDENTIFIER="com.xcapit.wallet"
 
 
 # Apple id

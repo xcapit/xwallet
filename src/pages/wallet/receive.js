@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     marginTop: DEVICE.screenHeight * 0.01,
   },
   addressText: {
-    color: color.app.theme,
+    color: color.tab_btn_xcapit,
     fontFamily: fontFamily.AvenirBook,
     fontSize: 16,
     textAlign: 'center',

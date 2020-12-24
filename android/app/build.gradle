@@ -108,7 +108,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rsk.rwallet.reactnative"
+        applicationId "com.xcapit.wallet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 28

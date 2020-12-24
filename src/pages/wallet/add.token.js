@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
   body: {
-    marginTop: -32,
+    marginTop: -55,
     marginHorizontal: 24,
   },
   addCustomTokenView: {

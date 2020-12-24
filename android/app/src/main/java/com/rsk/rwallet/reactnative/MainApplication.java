@@ -1,4 +1,4 @@
-package com.rsk.rwallet.reactnative;
+package com.xcapit.wallet;
 
 import android.app.Application;
 import android.content.Context;

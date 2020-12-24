@@ -2514,7 +2514,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rsk.rwallet.reactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xcapit.wallet;
 				PRODUCT_NAME = RWallet;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2570,7 +2570,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rsk.rwallet.reactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xcapit.wallet;
 				PRODUCT_NAME = RWallet;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";

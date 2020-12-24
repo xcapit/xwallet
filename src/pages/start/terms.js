@@ -14,7 +14,7 @@ import { strings } from '../../common/i18n';
 import config from '../../../config';
 import color from '../../assets/styles/color';
 
-const logo = require('../../assets/images/icon/logo.png');
+const logo = require('../../assets/images/icon/xcapit_logo_2.png');
 
 const styles = StyleSheet.create({
   page: {
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   logo: {
     position: 'absolute',
     top: '18%',
+    marginBottom: 10
   },
   buttonView: {
     position: 'absolute',

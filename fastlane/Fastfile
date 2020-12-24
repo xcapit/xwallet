@@ -1,4 +1,4 @@
-APP_ID="com.rsk.rwallet.reactnative"
+APP_ID="com.xcapit.wallet"
 XCODEPROJ="./ios/rwallet.xcodeproj"
 GRADLE_FILE="android/app/build.gradle"
 
